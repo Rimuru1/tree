@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { Router } from '@angular/router';
-import { LoginService } from '../login.service';
+
 
 
 @Component({
@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
         res => { 
         console.log(res)
         localStorage.setItem('token', res.token)
-        this._router.navigateByUrl('/login')
+        this._router.navigateByUrl('/tabs')
         },
         err => console.log(err)
       )

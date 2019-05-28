@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
 })
 export class Tab3Page implements OnInit {
   user: firebase.User;
+  loginUserData = {}
   constructor(
     private service: ServiceService,
     private router: Router,
@@ -35,6 +36,17 @@ export class Tab3Page implements OnInit {
   logoutGoogle() {
     console.log("logout...");
     this.service.logout();
+  }
+  loginUser() {
+    
+    this.service.loginuser(this.loginUserData).subscribe(
+      res => {
+        console.log(res)
+        localStorage.setItem('token', res.token)
+        this.router.navigate(['/tabs'])
+      },
+      err => console.log(err)
+    )
   }
 
 }

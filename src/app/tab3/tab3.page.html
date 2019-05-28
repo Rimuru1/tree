@@ -9,18 +9,18 @@
 <ion-content *ngIf="!user">
     <ion-item >
         <ion-label position="floating">Email</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="loginUserData.email" type="email"></ion-input>
       </ion-item>
       <ion-item >
         <ion-label position="floating">Password</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="loginUserData.password" type="password"></ion-input>
         </ion-item>
       
       <div padding>
-        <ion-button  fill="outline">Login</ion-button>
+        <ion-button  (click)="loginUser()" fill="outline">Login</ion-button>
         </div>
       <div padding>
-        Don't have an account?<a routerLink="/tabs">Sign Up</a>
+        Don't have an account?<a routerLink="/register">Sign Up</a>
         </div>
        <ion-button expand="block" fill="outline" (click)="loginFacebook()">
   <ion-icon name="logo-facebook">

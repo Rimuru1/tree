@@ -8,6 +8,8 @@ import { auth } from 'firebase';
   providedIn: 'root'
 })
 export class ServiceService {
+  private _loginUrl = "http://localhost:3000/login";
+  private _registerUel = "http://localhost:3000/register";
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -29,5 +31,10 @@ export class ServiceService {
   getLoggedInUser() {
     return this.afAuth.authState;
   }
+  loginuser(user){
+    return this.http.post<any>(this._loginUrl, user)
+  }
+  registerUser(user){
+    return this.http.post<any>(this._registerUel, user)
+  }
 }
-
