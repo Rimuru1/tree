@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: './register/register.module#RegisterPageModule'
-  }
+  },
+  { path: 'auction', loadChildren: './auction/auction.module#AuctionPageModule' }
 ];
 @NgModule({
   imports: [

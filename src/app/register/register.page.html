@@ -17,33 +17,27 @@ Logout
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs"></ion-back-button>
     </ion-buttons>
+    <ion-title>
+      Register
+    </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Register
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-      <ion-item >
-          <ion-label position="floating">Firstname</ion-label>
-          <ion-input [(ngModel)]="registerUserData.fname" name="fname" type="text" class="form-control" ></ion-input>
-        </ion-item>
-        <ion-item >
-          <ion-label position="floating">Lastname</ion-label>
-          <ion-input [(ngModel)]="registerUserData.lname" name="lname" type="text" class="form-control"></ion-input>
-          </ion-item>
-          <ion-item >
-          <ion-label position="floating" >Email</ion-label>
-          <ion-input [(ngModel)]="registerUserData.email" name="email" type="email" class="form-control" ></ion-input>
-        </ion-item>
-        <ion-item >
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control" ></ion-input>
-          </ion-item>
-          <ion-button  expand="block" (click)="registerUsers()">Accept</ion-button>
-  </ion-content>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Firstname</ion-label>
+    <ion-input [(ngModel)]="registerUserData.fname" name="fname" type="text" class="form-control"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Lastname</ion-label>
+    <ion-input [(ngModel)]="registerUserData.lname" name="lname" type="text" class="form-control"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="registerUserData.email" name="email" type="email" class="form-control"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input [(ngModel)]="registerUserData.password" name="password" type="password" class="form-control"></ion-input>
+  </ion-item>
+  <ion-button  padding expand="block" (click)="registerUsers()">Accept</ion-button>
+</ion-content>

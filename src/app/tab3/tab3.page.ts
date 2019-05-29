@@ -21,6 +21,10 @@ export class Tab3Page implements OnInit {
     .subscribe(user =>{
       console.log(user);
       this.user = user;
+
+      if (this.user != null) {
+        this.router.navigateByUrl('/tabs');
+        }  
     });
   }
   loginFacebook(){
