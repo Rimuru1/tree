@@ -7,36 +7,42 @@
 </ion-header>
 
 <ion-content *ngIf="!user">
-    <ion-item >
-        <ion-label position="floating">Email</ion-label>
-        <ion-input [(ngModel)]="loginUserData.email" type="email"></ion-input>
-      </ion-item>
-      <ion-item >
-        <ion-label position="floating">Password</ion-label>
-        <ion-input [(ngModel)]="loginUserData.password" type="password"></ion-input>
-        </ion-item>
-      
-      <div padding>
-        <ion-button  (click)="loginUser()" fill="outline">Login</ion-button>
-        </div>
-      <div padding>
-        Don't have an account?<a routerLink="/register">Sign Up</a>
-        </div>
-       <ion-button expand="block" fill="outline" (click)="loginFacebook()">
-  <ion-icon name="logo-facebook">
-  </ion-icon> Login with Facebook </ion-button>
-  <ion-button expand="block" fill="outline" (click)="loginGoogle()">
-  <ion-icon name="logo-googleplus">
-</ion-icon> Login With Google </ion-button>
-</ion-content>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="loginUserData.email" type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input [(ngModel)]="loginUserData.password" type="password"></ion-input>
+  </ion-item>
 
-  <ion-content *ngIf="user">
-  <ion-chip >                    
-    <ion-label > {{ user?.displayName }}</ion-label>
-    </ion-chip>
-  <ion-button  expand="block" (click)="logoutGoogle()">
-    <ion-icon name="log-out">
-</ion-icon> Logout </ion-button>
+  <div padding>
+    <ion-button (click)="loginUser()" fill="outline">Login</ion-button>
+  </div>
+  <div padding>
+    Don't have an account?<a routerLink="/register">Sign Up</a>
+  </div>
+  <div padding>
+    Do you want to create a store?<a routerLink="/create-store">Create my store</a>
+  </div>
   
+  <ion-button expand="block" fill="outline" (click)="loginFacebook()">
+    <ion-icon name="logo-facebook">
+    </ion-icon> Login with Facebook
+  </ion-button>
+  <ion-button expand="block" fill="outline" (click)="loginGoogle()">
+    <ion-icon name="logo-googleplus">
+    </ion-icon> Login With Google
+  </ion-button>
 </ion-content>
 
+<ion-content *ngIf="user">
+  <ion-chip>
+    <ion-label> {{ user?.displayName }}</ion-label>
+  </ion-chip>
+  <ion-button expand="block" (click)="logoutGoogle()">
+    <ion-icon name="log-out">
+    </ion-icon> Logout
+  </ion-button>
+
+</ion-content>

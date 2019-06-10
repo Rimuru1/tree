@@ -10,7 +10,8 @@ import { auth } from 'firebase';
 export class ServiceService {
   private _loginUrl = "http://localhost:3000/login";
   private _registerUel = "http://localhost:3000/register";
-
+  private _stroeUrl = "http://localhost:3000/stroe";
+  private _productUrl ="http://localhost:3000/product";
   constructor(
     private afAuth: AngularFireAuth,
     private http: HttpClient,
@@ -37,4 +38,13 @@ export class ServiceService {
   registerUser(user){
     return this.http.post<any>(this._registerUel, user)
   }
+  createStroe(stroe){
+    return this.http.post<any>(this._stroeUrl, stroe)
+  }
+  addProducts(product){
+    return this.http.post<any>(this._productUrl, product)
+  }
+  SearchProduct(){
+    return this.http.get<any>(this._productUrl)
+}
 }

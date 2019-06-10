@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref=""></ion-back-button>
+        </ion-buttons>
+    <ion-title>createStore</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Stroe Name</ion-label>
+    <ion-input [(ngModel)]="createStroeData.marketName" name="productName" type="text" class="form-control"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input [(ngModel)]="createStroeData.address" name="type" type="text" class="form-control"></ion-input>
+  </ion-item>
+  <!-- <ion-item>
+    <ion-label position="floating">Price</ion-label>
+    <ion-input [(ngModel)]="createStroeData.price" name="price" type="text" class="form-control"></ion-input>
+  </ion-item> -->
+  <!-- <ion-item>
+    <ion-label position="floating">Sector</ion-label>
+    <ion-input [(ngModel)]="createStroeData.sector" name="sector" type="text" class="form-control"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Province</ion-label>
+    <ion-input [(ngModel)]="createStroeData.province" name="province" type="text" class="form-control"></ion-input>
+  </ion-item> -->
+  <ion-button  padding expand="block" (click)="createStroes()">Accept</ion-button>
+</ion-content>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ServiceService } from '../service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,23 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  user: firebase.User;
 
+  constructor(
+    private service: ServiceService,
+    private router: Router
+  ) {}
+  ngOnInit() {
+    this.service.getLoggedInUser()
+    .subscribe( user => {
+      console.log( user );
+      this.user = user;
+
+});
+}
+logoutGoogle() {
+  console.log("logout...");
+  this.service.logout();
+
+}
 }

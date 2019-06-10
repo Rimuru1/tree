@@ -4,128 +4,34 @@
       Home
     </ion-title>
   </ion-toolbar>
+  <ion-tab-bar *ngIf="user">
+    <ion-chip>
+      <ion-label> {{ user?.displayName }}</ion-label>
+    </ion-chip>
+    <ion-button expand="block" (click)="logoutGoogle()">
+      <ion-icon name="log-out">
+      </ion-icon> Logout
+    </ion-button>
+  </ion-tab-bar>
 </ion-header>
-<ion-content>
-  <ion-searchbar animated></ion-searchbar>
-  <ion-card>
+<ion-content>  
     <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      1This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      2This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      3This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      4This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      5This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      6This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      7This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      8This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-item>
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
-    </ion-item>
-    <ion-card-content>
-      9This is content, without any paragraph or header tags,
-      within an ion-card-content element.
-    </ion-card-content>
-  </ion-card>
+        <ion-label position="floating">SearchProduct</ion-label>
+        <ion-input  [(ngModel)]="product.productName" type="text"></ion-input>
+        <ion-button expand="block" (click)="searchproduct()">
+           Accept
+          </ion-button>
+      </ion-item> 
 </ion-content>
 
-<ion-content *ngIf="user">
-  <ion-chip>
-    <ion-label> {{ user?.displayName }}</ion-label>
-  </ion-chip>
-  <ion-button expand="block" (click)="logoutGoogle()">
-    <ion-icon name="log-out">
-    </ion-icon> Logout
-  </ion-button>
-
+<ion-content >
+    <ion-card>
+        <ion-card-content>
+         {{ showProduct}}<br>
+         {{ showType}}<br>
+         {{ showPrice}}<br>
+         {{ showSector}}<br>
+         {{ showProvince}}
+        </ion-card-content>
+      </ion-card>
 </ion-content>

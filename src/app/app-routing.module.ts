@@ -7,7 +7,14 @@ const routes: Routes = [
     path: 'register',
     loadChildren: './register/register.module#RegisterPageModule'
   },
-  { path: 'auction', loadChildren: './auction/auction.module#AuctionPageModule' }
+  {
+     path: 'create-store', 
+     loadChildren: './create-store/create-store.module#CreateStorePageModule' 
+  },
+  { 
+    path: 'add-product', 
+    loadChildren: './add-product/add-product.module#AddProductPageModule' 
+  }
 ];
 @NgModule({
   imports: [

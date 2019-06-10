@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/insurane', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/tree', { useNewUrlParser: true });
 
 mongoose.connection.on('connected', function () {
     console.log('mongoose default connection open');

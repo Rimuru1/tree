@@ -4,6 +4,14 @@
       News
     </ion-title>
   </ion-toolbar>
+  <ion-tab-bar *ngIf="user">
+      <ion-chip>
+        <ion-label> {{ user?.displayName }}</ion-label>
+      </ion-chip>
+      <ion-button expand="block" (click)="logoutGoogle()">
+        <ion-icon name="log-out">
+        </ion-icon> Logout
+      </ion-button>
+    </ion-tab-bar>
 </ion-header>
 
-<ion-content></ion-content>

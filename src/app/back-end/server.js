@@ -6,6 +6,10 @@ require('./api');
 const FeedbackModel = require('./user');
 const User = require('./user')
 const cors = require('cors')
+const Product = require('./product')
+const Stroe = require('./stroe')
+const SrcProduct = require('./search')
+
 
 const PORT = 3000
 
@@ -33,6 +37,30 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.end("home");
 
+
+});
+
+app.delete('/delete',(req, res) => {
+    var query = {id: cfe0a4697ea5e3a9c1b76ca };
+    Product.findByIdAndDelete({query}, (err, product) =>{
+        if(err){
+            res.send('NOOOOOOOOOO!!!!');
+            next();
+        }
+        res.json(product);
+    })
+    
+})
+app.get('/product',(req, res) => {
+    var query = {SrcProduct};
+    Product.find({} , (err,product) => {
+        if(err){
+            res.send('somthing');
+            next();
+        }
+        res.json(product);
+    })
+
 });
 
 app.post('/register', (req, res) => {
@@ -51,6 +79,38 @@ app.post('/register', (req, res) => {
 
 });
 
+app.post('/product', (req, res) => {
+
+    let productData = req.body
+    let product = Product(productData)
+    product.save((error, addproduct) => {
+        if (error) {
+            console.log(error)
+        } else {
+            let payload = { subject: addproduct._id }
+            let token = jwt.sign(payload, 'secretkey')
+            res.status(200).json(productData);
+        }
+    })
+
+});
+app.post('/stroe', (req, res) => {
+
+    let stroeData = req.body
+    let stroe = Stroe(stroeData)
+    stroe.save((error, createmarket) => {
+        if (error) {
+            console.log(error)
+        } else {
+            let payload = { subject: createmarket._id }
+            let token = jwt.sign(payload, 'secretkey')
+            res.status(200).json(stroeData)
+        }
+    })
+
+});
+
+
 app.post('/login', (req, res) => {
     let userData = req.body
 
@@ -66,7 +126,7 @@ app.post('/login', (req, res) => {
                 } else {
                     let payload = { subject: user._id }
                     let token = jwt.sign(payload, 'secretkey')
-                    res.status(200).send({token})
+                    res.status(200).json(user)
                 }
         }
     })
