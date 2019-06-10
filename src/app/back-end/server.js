@@ -40,9 +40,8 @@ app.get('/home', (req, res) => {
 
 });
 
-app.delete('/delete',(req, res) => {
-    var query = {id: cfe0a4697ea5e3a9c1b76ca };
-    Product.findByIdAndDelete({query}, (err, product) =>{
+app.delete('/delete/:id',(req, res) => {
+    Product.findByIdAndRemove({_id:req.params.id}, (err, product) => {
         if(err){
             res.send('NOOOOOOOOOO!!!!');
             next();
