@@ -39,7 +39,23 @@ app.get('/home', (req, res) => {
 
 
 });
+// UpdetProduct
+// app.put('/update', (req, res) => {
+//     Product.findById(req.body._id, (err, product) =>{
+//             // product.productName = req.body.productName;
+//             product.set.type = req.get.type;
+//             product.get.price = req.body.price;
+//             product.sector = req.body.sector;
+//             product.province = req.body.province;
+//             product.save((err, product) =>{
+//                 res.json(product);
+//         })
+// })
 
+// })
+
+
+// deleteProduct
 app.delete('/delete/:id',(req, res) => {
     Product.findByIdAndRemove({_id:req.params.id}, (err, product) => {
         if(err){
