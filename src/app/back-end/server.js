@@ -9,6 +9,7 @@ const cors = require('cors')
 const Product = require('./product')
 const Stroe = require('./stroe')
 const SrcProduct = require('./search')
+const multer = require('./multer')
 
 
 const PORT = 3000
@@ -16,6 +17,7 @@ const PORT = 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors())
+
 // app.use(function (req, res, next) {
 //     res.setHeader('Access-Control-Allow-Origin', '*');
 //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -39,20 +41,35 @@ app.get('/home', (req, res) => {
 
 
 });
-// UpdetProduct
-// app.put('/update', (req, res) => {
-//     Product.findById(req.body._id, (err, product) =>{
-//             // product.productName = req.body.productName;
-//             product.set.type = req.get.type;
-//             product.get.price = req.body.price;
-//             product.sector = req.body.sector;
-//             product.province = req.body.province;
-//             product.save((err, product) =>{
-//                 res.json(product);
-//         })
-// })
 
-// })
+app.post('/api/photo',function(req,res){
+    upload(req,res,function(err) {
+        console.log(req.body);
+        console.log(req.files);
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+});
+// UpdetProduct
+app.put('/update/:id', (req, res) => {
+    Product.findByIdAndUpdate({_id:req.body.id}, (err, product) =>{
+        //console.log(Product)
+            product.productName = req.body.productName;
+            product.type = req.body.type;
+            product.price = req.body.price;
+            product.image = req.body.image;
+            product.save((err, product) =>{
+        if(err){
+            res.send('NOOOOOOOOOO!!!!');
+            next();
+        }
+        res.json(product)
+        })
+    })
+})
+    
 
 
 // deleteProduct
@@ -62,7 +79,7 @@ app.delete('/delete/:id',(req, res) => {
             res.send('NOOOOOOOOOO!!!!');
             next();
         }
-        res.json(product);
+        res.send('successfuly');
     })
     
 })
