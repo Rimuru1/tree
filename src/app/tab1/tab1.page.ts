@@ -11,9 +11,9 @@ export class Tab1Page implements OnInit {
   showProduct = localStorage.getItem('ProductName')
   showType = localStorage.getItem("Type")
   showPrice = localStorage.getItem("Price")
-  showSector = localStorage.getItem("Sector")
-  showProvince = localStorage.getItem("Province")
+  showImg = localStorage.getItem("Img")
   user: firebase.User;
+  allProduct: any[] = []
   product = {}
 
   constructor(
@@ -39,23 +39,21 @@ searchproduct() {
     res => { 
       var data = JSON.stringify(res)
       var jsonData = JSON.parse(data)
+      this.allProduct = jsonData
       // console.log(jsonData[1].productName)
       // console.log()
 
       
-      for (let i = 1; i < jsonData.length; i++) {
+      // for (let i = 1; i < jsonData.length; i++) {
       
-        localStorage.setItem("ProductName", jsonData[i].productName)
-        localStorage.setItem("Type", jsonData[i].type)
-        localStorage.setItem("Price", jsonData[i].price)
-        localStorage.setItem("Sector", jsonData[i].sector)
-        localStorage.setItem("Province", jsonData[i].province)
-        console.log(jsonData[i])
+      //   localStorage.setItem("ProductName", jsonData[i].productName)
+      //   localStorage.setItem("Type", jsonData[i].type)
+      //   localStorage.setItem("Price", jsonData[i].price)
+      //   localStorage.setItem("Img", jsonData[i].imgUrl)
+        
+      //   console.log(jsonData[i])
 
-      }
-
-    }
-    )
+      })
 }
 
 }

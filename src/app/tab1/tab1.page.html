@@ -25,13 +25,12 @@
 </ion-content>
 
 <ion-content >
-    <ion-card >
+    <ion-card  *ngFor="let item of allProduct; let i = index">
         <ion-card-content>
-         {{ showProduct}}<br>
-         {{ showType}}<br>
-         {{ showPrice}}<br>
-         {{ showSector}}<br>
-         {{ showProvince}}
+         {{ item.productName}}<br>
+         {{ item.type}}<br>
+         {{ item.price}}<br>
+         <img src="{{item.imgUrl}}" />
         </ion-card-content>
       </ion-card>
 </ion-content>
